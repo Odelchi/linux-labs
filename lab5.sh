@@ -25,3 +25,26 @@ do
 		fi
 	fi
 done 
+
+#задача 31
+#! /bin/bash
+
+n=0 
+str=" "
+cat $1| while read string
+do
+	if echo "$string" | grep $3
+	then
+		n=1
+		a=$'\n'
+		str+="${string}${a}"
+		echo $str >>file_name
+		cat $2 >>file_name
+		break
+	elif [[ n -eq 0]]
+	then
+		str+=${string}$'\n'
+	fi
+done
+
+
